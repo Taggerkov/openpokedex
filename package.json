@@ -1,0 +1,23 @@
+{
+  "name": "openpokedex",
+  "version": "0.0.1",
+  "description": "OpenPokeDex is a minimal, fast, and open-source Pokédex application.",
+  "author": "Taggerkov",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.5.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.1",
+    "prettier": "^3.5.3",
+    "vite": "^6.3.3"
+  }
+}
