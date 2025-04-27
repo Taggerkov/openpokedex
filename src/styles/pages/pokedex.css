@@ -1,0 +1,104 @@
+/*
+ * Copyright © 2025 Taggerkov
+ * Licensed under the MIT License. See LICENSE file in the project root for full license information.
+ */
+
+/* Pokemon Page */
+.page-pokemon {
+    flex: 1;
+    display: flex;
+}
+
+.list-pokemon {
+    display: inherit;
+    flex-direction: column;
+    flex: 1;
+}
+
+.content-pokemon {
+    padding: 1rem;
+}
+
+.grid-pokemon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+/* Pokemon Cards */
+.card-pokemon {
+    display: block;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.card-pokemon:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Error Alert */
+.alert-error {
+    background-color: #ffdddd;
+    color: #990000;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #990000;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+/* Pagination */
+.pagination-wrapper {
+    margin-top: auto;
+    padding: 1rem;
+}
+
+.pagination {
+    gap: 1rem;
+}
+
+.pagination-page {
+    gap: 0.5rem;
+}
+
+.pagination-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pagination-button:disabled {
+    background-color: #eee;
+    cursor: not-allowed;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #f0f0f0;
+}
+
+.pagination-input {
+    width: 3rem;
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.3rem;
+    -moz-appearance: textfield;
+}
+
+/* Remove number input spinners */
+.pagination-input::-webkit-inner-spin-button,
+.pagination-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -12,7 +12,7 @@ import PokemonList from '@/components/PokemonList'
  */
 function PokedexPage() {
     return (
-        <section>
+        <section className="page-pokemon">
             <PokemonList />
         </section>
     );

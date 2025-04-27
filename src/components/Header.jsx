@@ -13,14 +13,14 @@ import { Link } from 'react-router-dom'
  */
 function Header() {
     return (
-        <header>
-            <nav className="container" style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 0' }}>
-                <Link to="/" style={{ textDecoration: 'none', fontWeight: 'bold' }}>
+        <header className="header">
+            <nav className="nav">
+                <Link to="/" className="site-title">
                     OpenPokeDex
                 </Link>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                    <Link to="/" style={{ textDecoration: 'none' }}>Pokedex</Link>
-                    <Link to="/about" style={{ textDecoration: 'none' }}>About</Link>
+                <div className="nav-links">
+                    <Link to="/">Pokedex</Link>
+                    <Link to="/about">About</Link>
                 </div>
             </nav>
         </header>

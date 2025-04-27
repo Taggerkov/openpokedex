@@ -5,25 +5,27 @@
 
 import { Outlet } from 'react-router-dom'
 import Header from '@/components/Header'
+import Footer from "@/components/Footer";
 
 // Main application layout.
 // Renders Header and switches pages via React Router's Outlet.
 
 /**
  * Application layout component.
- * Renders the header and the page content based on the current route.
+ * Renders the header, the current page content based on the route, and a global footer.
  *
- * @returns {JSX.Element} The App layout.
+ * @returns {JSX.Element} The full application layout.
  */
 function App() {
     return (
-        <>
+        <div className="app">
             <Header />
-            <main className="container">
+            <main className="main">
                 <Outlet />
             </main>
-        </>
-    )
+            <Footer />
+        </div>
+    );
 }
 
 export default App
