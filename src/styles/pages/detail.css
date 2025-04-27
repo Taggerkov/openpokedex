@@ -1,0 +1,45 @@
+/*
+ * Copyright © 2025 Taggerkov
+ * Licensed under the MIT License. See LICENSE file in the project root for full license information.
+ */
+
+/* Pokemon Detail Page */
+.detail-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.detail-loading,
+.detail-error {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.detail-error {
+    color: #990000;
+}
+
+.detail-title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.detail-image {
+    margin: 1rem 0;
+    max-width: 200px;
+    width: 100%;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #333;
+}

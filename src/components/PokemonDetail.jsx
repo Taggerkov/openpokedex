@@ -3,8 +3,8 @@
  * Licensed under the MIT License. See LICENSE file in the project root for full license information.
  */
 
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import {useParams} from 'react-router-dom';
+import {useEffect, useState} from 'react';
 
 /**
  * Displays detailed information for a single Pokémon.
@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
  * @returns {JSX.Element} The Pokémon detail view.
  */
 function PokemonDetail() {
-    const { name } = useParams();
+    const {name} = useParams();
     const [pokemon, setPokemon] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -20,11 +20,9 @@ function PokemonDetail() {
     useEffect(() => {
         async function fetchPokemon() {
             try {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch Pokémon details.');
-                }
-                const data = await response.json();
+                const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+                if (!res.ok) throw new Error('Failed to fetch Pokémon details.');
+                const data = await res.json();
                 setPokemon(data);
             } catch (err) {
                 console.error(err);
@@ -34,33 +32,44 @@ function PokemonDetail() {
             }
         }
 
-        fetchPokemon();
+        fetchPokemon().catch((error) => {
+            console.error('Failed to fetch Pokémon:', error);
+        })
     }, [name]);
 
     if (loading) {
-        return <div className="container" style={{ padding: '2rem' }}>Loading...</div>;
+        return <div className="detail-container detail-loading">Loading…</div>;
     }
 
     if (error) {
-        return <div className="container" style={{ padding: '2rem' }}>Error: {error}</div>;
+        return <div className="detail-container detail-error">Error: {error}</div>;
     }
 
     return (
-        <div className="container" style={{ padding: '2rem', textAlign: 'center' }}>
-            <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
+        <section className="detail-container">
+            <h1 className="detail-title">
+                {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+            </h1>
             {pokemon.sprites?.front_default && (
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} style={{ margin: '1rem 0' }} />
+                <img
+                    className="detail-image"
+                    src={pokemon.sprites.front_default}
+                    alt={pokemon.name}
+                />
             )}
-            <div>
-                <strong>Height:</strong> {pokemon.height}
+            <div className="detail-info">
+                <div>
+                    <strong>Height:</strong> {pokemon.height}
+                </div>
+                <div>
+                    <strong>Weight:</strong> {pokemon.weight}
+                </div>
+                <div>
+                    <strong>Types:</strong>{' '}
+                    {pokemon.types.map((t) => t.type.name).join(', ')}
+                </div>
             </div>
-            <div>
-                <strong>Weight:</strong> {pokemon.weight}
-            </div>
-            <div>
-                <strong>Types:</strong> {pokemon.types.map(t => t.type.name).join(', ')}
-            </div>
-        </div>
+        </section>
     );
 }
 

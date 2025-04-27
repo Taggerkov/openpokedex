@@ -20,7 +20,7 @@ function PokemonList() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
     const [error, setError] = useState(null);
-    const itemsPerPage = 20;
+    const itemsPerPage = 21;
 
     // Fetch Pokémon data whenever the current page changes.
     useEffect(() => {
